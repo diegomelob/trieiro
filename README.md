@@ -1,2 +1,2 @@
-# api-hackathon-ccr
+# solutions hackathon-ccr
 
