@@ -1,0 +1,38 @@
+{
+  "name": "api-hackathon-ccr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "NODE_ENV=development nodemon index.js"
+  },
+  "engines": {
+    "node": "10.0.0",
+    "npm": "^5.7.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "boom": "^7.3.0",
+    "dotenv": "^5.0.1",
+    "es-logger": "^0.3.0",
+    "hapi": "^17.2.2",
+    "hapi-alive": "^2.0.0",
+    "hapi-response-time": "^2.0.0",
+    "hapi-swaggered": "^3.0.2",
+    "hapi-swaggered-ui": "^3.0.1",
+    "inert": "^5.1.0",
+    "joi": "^14.3.1",
+    "sinon": "^5.0.7",
+    "uuid": "^3.2.1",
+    "vision": "^5.3.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "nodemon": "^1.17.1",
+    "nyc": "^11.4.1"
+  }
+}

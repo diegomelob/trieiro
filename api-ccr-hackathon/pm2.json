@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "hackathon",
+      "script": "index.js",
+      "error_file": "/mnt/log/api/hackathon.err.log",
+      "out_file": "/mnt/log/api/hackathon.out.log",
+      "merge_logs": true,
+      "log_type": "json",
+      "instances": "1",
+      "exec_mode": "cluster"
+    }
+  ]
+}
