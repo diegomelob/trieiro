@@ -2,10 +2,6 @@
 
 const covidController = require('./covidController');
 
-module.exports = (adapters, errorHandler) => ({
-  covid: covidController(
-    adapters,
-    errorHandler,
-  ).covid,
-
+module.exports = adapters => ({
+  covid: covidController(adapters).covid,
 });

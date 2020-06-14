@@ -4,7 +4,7 @@ const controller = require('../controllers');
 const { covidSchema } = require('../schemas');
 
 const getCovid = {
-  path: '/v1/covid',
+  path: '/v1/covid/{uf}/municipios',
   method: 'GET',
   config: {
     tags: ['api'],
@@ -13,7 +13,9 @@ const getCovid = {
       options: {
         allowUnknown: true,
       },
-      query: covidSchema.covidRequest.uf,
+      params: {
+        uf: covidSchema.covidRequestMunicipios.uf,
+      },
     },
   },
 };
