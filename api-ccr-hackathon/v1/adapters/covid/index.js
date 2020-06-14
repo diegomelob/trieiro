@@ -1,4 +1,5 @@
 'use strict';
+const distanceCoordinates = require('../../../commons/utils/distanceCoordinates');
 
 const covidWrapper = ({
   services,
@@ -47,7 +48,8 @@ const covidWrapper = ({
         objResponseMap.latitude = element.point.coordinates[0];
         objResponseMap.longitude = element.point.coordinates[1];
         objResponseMap.casos = element.casosAcumulado;
-        objResponseMap.incidencia = await covidMapper.mapIncidencias(element.casosAcumulado);
+        objResponseMap.incidencia = await covidMapper.mapIncidencias(element.casosAcumulado);        
+        objResponseMap.distance = await distanceCoordinates.calculate(lat, lng, objResponseMap.latitude, objResponseMap.longitude, 'M');
         responseMap.push(objResponseMap);
       }
       return responseMap;
