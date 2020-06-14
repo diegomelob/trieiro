@@ -13,7 +13,7 @@ const covidWrapper = ({
     let lng = parseFloat(payload.long);
 
     try {
-      let filterMunicipio = {
+      let query = {
         point: {
           $near: {
             $geometry: {
@@ -25,9 +25,9 @@ const covidWrapper = ({
         }
       };
 
-      const result = await mongoDb.search(config.db.mongoDB, mongoDb, 'municipios', filterMunicipio);
-      const response = await services.serviceCovid.getCovidMunicipio(payload);
-      return response;
+      const result = await mongoDb.search(config.db.mongoDB, mongoDb, 'municipios', query);
+      //const response = await services.serviceCovid.getCovidMunicipio(payload);
+      return result;
     } catch (errorCatch) {
       throw errorCatch;
     }

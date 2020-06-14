@@ -8,5 +8,7 @@ module.exports = {
         municipio: Joi.string(),
         categoria: Joi.string(),
         rodovia: Joi.string(),
+        lat: Joi.string(),
+        lng: Joi.string(),
       },
 };

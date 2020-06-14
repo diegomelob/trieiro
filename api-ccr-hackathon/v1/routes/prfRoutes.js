@@ -18,6 +18,8 @@ const getPontos = {
         municipio: prfSchema.prfRequestPontos.municipio,
         categoria: prfSchema.prfRequestPontos.categoria,
         rodovia: prfSchema.prfRequestPontos.rodovia,
+        latitude: prfSchema.prfRequestPontos.lat,
+        longitude: prfSchema.prfRequestPontos.lng,
       },
     },
   },

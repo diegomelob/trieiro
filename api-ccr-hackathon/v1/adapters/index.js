@@ -13,6 +13,7 @@ module.exports = dependencies => ({
   }).covid,
 
   prf: prfWrapper({
+    mongoDb: dependencies.mongoDb,
     logger: dependencies.logger,
     config: dependencies.config,
     services: dependencies.services,
