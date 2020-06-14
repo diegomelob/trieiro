@@ -4,6 +4,7 @@ const covidWrapper = ({
   services,
   mongoDb,
   config,
+  covidMapper,
 }) => {
   const covid = async ({
     payload,
@@ -25,9 +26,31 @@ const covidWrapper = ({
         }
       };
 
+      const response = [];
       const result = await mongoDb.search(config.db.mongoDB, mongoDb, 'municipios', query);
-      //const response = await services.serviceCovid.getCovidMunicipio(payload);
-      return result;
+
+      for (const element of result) {
+
+        const filterCodIbge = element.codigo_ibge.toString().substring(0,(element.codigo_ibge.toString().length - 1));
+        const filter = { cod: filterCodIbge };
+
+        const resCasosCovid = await mongoDb.search(config.db.mongoDB, mongoDb, 'casosCovid', filter);
+        const result = Object.assign(element, ...resCasosCovid);
+        response.push(result);
+      }
+
+      let responseMap = [];
+      for (const element of response) {
+        let objResponseMap = {};
+        objResponseMap.codigo_ibge = element.codigo_ibge;
+        objResponseMap.nome = element.nome;
+        objResponseMap.latitude = element.point.coordinates[0];
+        objResponseMap.longitude = element.point.coordinates[1];
+        objResponseMap.casos = element.casosAcumulado;
+        objResponseMap.incidencia = await covidMapper.mapIncidencias(element.casosAcumulado);
+        responseMap.push(objResponseMap);
+      }
+      return responseMap;
     } catch (errorCatch) {
       throw errorCatch;
     }

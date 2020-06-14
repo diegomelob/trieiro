@@ -2,6 +2,7 @@
 
 const covidWrapper = require('./covid');
 const prfWrapper = require('./prf');
+const covidMapper = require('./mapper/covid');
 
 module.exports = dependencies => ({
 
@@ -10,6 +11,7 @@ module.exports = dependencies => ({
     logger: dependencies.logger,
     config: dependencies.config,
     services: dependencies.services,
+    covidMapper: covidMapper,
   }).covid,
 
   prf: prfWrapper({
