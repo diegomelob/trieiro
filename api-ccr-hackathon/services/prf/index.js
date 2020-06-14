@@ -17,8 +17,12 @@ const servicePrf = ({ request, config }) => {
 
     try {
       const response = await request.get(url, requestConfig);
-      console.log('requestURL', response.config);
-      return (response.data);
+      console.log('response', response.data);
+      if (response.data && response.data.Pontos && response.data.Pontos.Ponto) {
+        return (response.data.Pontos.Ponto);
+      } else {
+        response.data;
+      }
     } catch (error) {
       throw error;
     }
