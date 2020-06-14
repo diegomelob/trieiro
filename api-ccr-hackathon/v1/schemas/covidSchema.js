@@ -3,7 +3,7 @@
 const Joi = require('joi');
 
 module.exports = {
-    covidRequest: {
+    covidRequestMunicipios: {
         uf: Joi.string(),
       },
 };
